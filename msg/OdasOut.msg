@@ -1,2 +1,2 @@
-std_msgs/Float32MultiArray data
-odas_ros_msgs/OdasSstArrayStamped sst
+std_msgs/Header header
+phd_msgs/OdasSssPlus[] sources

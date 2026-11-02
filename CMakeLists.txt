@@ -12,12 +12,21 @@ find_package(ament_cmake REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(builtin_interfaces REQUIRED)
 find_package(odas_ros_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/OdasSstPlus.msg"
+  "msg/OdasSssPlus.msg"
   "msg/OdasOut.msg"
-  DEPENDENCIES std_msgs odas_ros_msgs # Add packages that above messages depend on
+  "msg/WorldObject.msg"
+  "msg/WorldObjectArray.msg"
+  "msg/VisualObservation.msg"
+  "msg/VisualObservationArray.msg"
+  DEPENDENCIES std_msgs sensor_msgs geometry_msgs builtin_interfaces odas_ros_msgs # Add packages that above messages depend on
 )
 
 if(BUILD_TESTING)
